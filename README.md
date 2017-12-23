@@ -15,3 +15,6 @@ git clone https://github.com/fnevgeny/fac.git
 mpirun -np 2 -hostfile hostfile ./hello-mpi.exe
 
 mpirun -np 2 -hostfile hostfile python bed.py
+
+### vbox guest additions
+vagrant plugin install vagrant-vbguest
