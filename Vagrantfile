@@ -65,26 +65,6 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-    config.vm.provision "shell", inline: <<-SHELL
-      sudo yum update -y
-      sudo yum install epel-release -y
-      sudo yum install git redhat-lsb-core kernel-headers kernel-devel python-devel htop -y
-      sudo yum groupinstall "Development Tools" -y
-      sudo yum update -y
-
-      cd /vagrant/openmpi-3.0.0
-      ./configure --prefix=/usr/local
-      sudo make all install
-
-      cd /vagrant
-      #git clone https://github.com/fnevgeny/fac.git
-      #sudo chown -R vagrant:vagrant fac && cd fac
-      cd /vagrant/fac && sudo ./configure
-      make
-      sudo ./configure --with-mpi=mpicc --with-mpicompile="-I/usr/local/include -pthread" --with-mpilink="-pthread -Wl,-rpath -Wl,/usr/local/lib -Wl,--enable-new-dtags -L/usr/local/lib -lmpi"
-      make
-      sudo make install
-      make pfac
-      sudo make install-pfac
-     SHELL
+    
+    config.vm.provision :shell, path: "bootstrap.sh", privileged: false
 end
