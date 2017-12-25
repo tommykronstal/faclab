@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo yum update -y
 sudo yum install redhat-lsb-core kernel-headers kernel-devel python-devel -y
 sudo yum groupinstall "Development Tools" -y
