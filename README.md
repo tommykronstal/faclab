@@ -12,4 +12,6 @@
 * ```vagrant ssh``` to open terminal in VM
 * ```cd /vagrant/configs``` folder with config files
 * ```python config-filename.py``` where config-filename.py is the name of the file to be processed 
-* When process is complete, the output will be found in the original location, for example ~/faclab
+* When process is complete, the output will be found in the original location, for example ~/faclab/configs
+* ```exit```to close connection to VM
+* ```vagrant halt``` to stop VM
